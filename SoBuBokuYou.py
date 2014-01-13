@@ -97,7 +97,7 @@ class SoBuBokuYouQA:
         answer = ask_yes_or_no("(y/n)\n")
         return answer
     def ask_final_question(self,):
-        answer = ask_yes_or_no("あなたの選んだ文字はこれですか？ (y/n)\n")
+        answer = ask_yes_or_no("合っていますか？ (y/n)\n")
         return answer
 
 class SoBuBokuYouPicture:
@@ -202,12 +202,12 @@ def main():
         sbby.update_answer_picture(ith_question, answer)
         sbby.output_answer_picture()
 
-    # 最後に
+    # 最後にもう一本線を引いて、図を完成させる
     answer_int = sbby.map_answers_to_int(answers)
-    sbby.show_answer(answer_int)
-    
     sbby.finalize_answer_picture(answer_int)
     sbby.output_answer_picture()
+    # 答えを表示 & 質問
+    sbby.show_answer(answer_int)
     answer = sbby.ask_final_question()
     if answer == True:
         sys.stdout.write("Grazie!!")
